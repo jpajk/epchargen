@@ -1,0 +1,46 @@
+<?php
+
+namespace CharacterBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * PlayerCharacter
+ *
+ * @ORM\Table(name="player_character")
+ * @ORM\Entity(repositoryClass="CharacterBundle\Repository\PlayerCharacterRepository")
+ */
+class PlayerCharacter
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * A character always has one set of ability scores
+     * @ORM\OneToOne(targetEntity="AbilityScores")
+     */
+    private $ability_scores;
+
+    /**
+     * A character always has one set of descriptive values
+     * @ORM\OneToOne(targetEntity="CharacterDescription")
+     */
+    private $character_description;
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}
+

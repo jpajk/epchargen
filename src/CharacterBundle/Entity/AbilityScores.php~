@@ -1,0 +1,76 @@
+<?php
+
+namespace CharacterBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * AbilityScores
+ *
+ * @ORM\Table(name="ability_scores")
+ * @ORM\Entity(repositoryClass="CharacterBundle\Repository\PlayerCharacterRepository")
+ */
+class AbilityScores
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="ability_scores", type="array")
+     */
+    private $abilityScoreValues = array(
+        'str' => 0,
+        'dex' => 0,
+        'con' => 0,
+        'int' => 0,
+        'wis' => 0,
+        'cha' => 0,
+    );
+
+    /**
+     * Set abilityScores
+     *
+     * @param array $abilityScores
+     *
+     * @return AbilityScores
+     */
+    public function setAbilityScores($abilityScores)
+    {
+        $this->abilityScores = $abilityScores;
+
+        return $this;
+    }
+
+    /**
+     * Set abilityScore
+     *
+     * @param string $abilityScoreName
+     * @param int $abilityScoreValue
+     *
+     * @return AbilityScores
+     */
+    public function setAbilityScore($abilityScoreName, $abilityScoreValue)
+    {
+        $this->abilityScoreValues[$abilityScoreName] = $abilityScoreValue;
+
+        return $this;
+    }
+
+    /**
+     * Get abilityScores
+     *
+     * @return array
+     */
+    public function getAbilityScores()
+    {
+        return $this->abilityScoreValues;
+    }
+}

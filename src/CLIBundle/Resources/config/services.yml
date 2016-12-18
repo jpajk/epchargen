@@ -1,4 +1,4 @@
 services:
-#    cli.example:
-#        class: CLIBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
+    character.generate:
+        class: CLIBundle\Service\CharacterGenerate
+        arguments: ["@service_container"]
