@@ -23,13 +23,13 @@ class PlayerCharacter
 
     /**
      * A character always has one set of ability scores
-     * @ORM\OneToOne(targetEntity="AbilityScores")
+     * @ORM\OneToOne(targetEntity="AbilityScores", cascade={"persist", "remove"})
      */
     private $ability_scores;
 
     /**
      * A character always has one set of descriptive values
-     * @ORM\OneToOne(targetEntity="CharacterDescription")
+     * @ORM\OneToOne(targetEntity="CharacterDescription", cascade={"persist", "remove"})
      */
     private $character_description;
 

@@ -2,13 +2,27 @@
 
 namespace CLIBundle\Service;
 
+use CharacterBundle\Entity\AbilityScores;
+use CharacterBundle\Entity\CharacterDescription;
+use CharacterBundle\Entity\PlayerCharacter;
+
 class CharacterGenerate
 {
     private $service_container;
 
+    public function __construct($service_container)
+    {
+        $this->setServiceContainer($service_container);
+    }
+
     public function dispatchCharacterGeneration()
     {
-        exit('Generation has begun' . "\n");
+        $this->generate();
+    }
+
+    protected function generate()
+    {
+        exit("Done\n");
     }
 
     /**

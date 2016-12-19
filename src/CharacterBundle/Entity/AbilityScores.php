@@ -26,14 +26,14 @@ class AbilityScores
      *
      * @ORM\Column(name="ability_scores", type="array")
      */
-    private $abilityScoreValues = array(
+    private $abilityScoreValues = [
         'str' => 0,
         'dex' => 0,
         'con' => 0,
         'int' => 0,
         'wis' => 0,
         'cha' => 0,
-    );
+    ];
 
     /**
      * Get id

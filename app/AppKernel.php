@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new CharacterBundle\CharacterBundle(),
             new GeneratorBundle\GeneratorBundle(),
             new CLIBundle\CLIBundle(),
+            new DisplayBundle\DisplayBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
