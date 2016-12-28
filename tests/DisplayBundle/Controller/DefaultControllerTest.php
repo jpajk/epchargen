@@ -12,6 +12,12 @@ class DefaultControllerTest extends WebTestCase
 
         $crawler = $client->request('GET', '/');
 
-        $this->assertContains('Hello World', $client->getResponse()->getContent());
+        /** Assert the response is 200 */
+        $this->assertTrue($client->getResponse()->isSuccessful(), 'The response of index was not successful' );
+
+        /** Assert that the #app is on the page */
+        $this->assertCount(1, $crawler->filter('div#app'), 'The #app was not found');
     }
+
+
 }

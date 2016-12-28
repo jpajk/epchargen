@@ -2,10 +2,6 @@
 
 namespace CLIBundle\Service;
 
-use CharacterBundle\Entity\AbilityScores;
-use CharacterBundle\Entity\CharacterDescription;
-use CharacterBundle\Entity\PlayerCharacter;
-
 class CharacterGenerate
 {
     private $service_container;
