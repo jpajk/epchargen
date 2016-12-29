@@ -22,16 +22,19 @@ class PlayerCharacter
     private $id;
 
     /**
-     * A character always has one set of ability scores
-     * @ORM\OneToOne(targetEntity="CharacterBundle\Entity\AptitudeList", cascade={"persist", "remove"})
-     */
-    private $aptitude_list;
-
-    /**
      * A character always has one set of descriptive values
      * @ORM\OneToOne(targetEntity="CharacterDescription", cascade={"persist", "remove"})
      */
     private $character_description;
+
+    /**
+     * @ORM\OneToMany(
+     *     targetEntity="CharacterBundle\Entity\Aptitude\AptitudeValue",
+     *     mappedBy="playerCharacter",
+     *     cascade={"persist", "remove"}
+     * )
+     */
+    private $aptitudeValues;
 
     /**
      * @ORM\OneToMany(targetEntity="CharacterBundle\Entity\Skill\SkillValue",
@@ -48,30 +51,6 @@ class PlayerCharacter
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set abilityScores
-     *
-     * @param \CharacterBundle\Entity\AptitudeList $abilityScores
-     *
-     * @return PlayerCharacter
-     */
-    public function setAptitudelist(\CharacterBundle\Entity\AptitudeList $abilityScores = null)
-    {
-        $this->aptitude_list = $abilityScores;
-
-        return $this;
-    }
-
-    /**
-     * Get abilityScores
-     *
-     * @return \CharacterBundle\Entity\AptitudeList
-     */
-    public function getAptitudelist()
-    {
-        return $this->aptitude_list;
     }
 
     /**
@@ -96,5 +75,21 @@ class PlayerCharacter
     public function getCharacterDescription()
     {
         return $this->character_description;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAptitudeValues()
+    {
+        return $this->aptitudeValues;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSkillValues()
+    {
+        return $this->skillValues;
     }
 }
