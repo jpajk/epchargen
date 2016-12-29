@@ -2,6 +2,7 @@
 
 namespace GeneratorBundle\Service;
 
+
 class DiceRoller
 {
     public static function roll($min, $max)

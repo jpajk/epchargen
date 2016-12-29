@@ -23,9 +23,9 @@ class PlayerCharacter
 
     /**
      * A character always has one set of ability scores
-     * @ORM\OneToOne(targetEntity="AbilityScores", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="CharacterBundle\Entity\AptitudeList", cascade={"persist", "remove"})
      */
-    private $ability_scores;
+    private $aptitude_list;
 
     /**
      * A character always has one set of descriptive values
@@ -46,13 +46,13 @@ class PlayerCharacter
     /**
      * Set abilityScores
      *
-     * @param \CharacterBundle\Entity\AbilityScores $abilityScores
+     * @param \CharacterBundle\Entity\AptitudeList $abilityScores
      *
      * @return PlayerCharacter
      */
-    public function setAbilityScores(\CharacterBundle\Entity\AbilityScores $abilityScores = null)
+    public function setAptitudelist(\CharacterBundle\Entity\AptitudeList $abilityScores = null)
     {
-        $this->ability_scores = $abilityScores;
+        $this->aptitude_list = $abilityScores;
 
         return $this;
     }
@@ -60,11 +60,11 @@ class PlayerCharacter
     /**
      * Get abilityScores
      *
-     * @return \CharacterBundle\Entity\AbilityScores
+     * @return \CharacterBundle\Entity\AptitudeList
      */
-    public function getAbilityScores()
+    public function getAptitudelist()
     {
-        return $this->ability_scores;
+        return $this->aptitude_list;
     }
 
     /**
