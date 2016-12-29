@@ -34,6 +34,13 @@ class PlayerCharacter
     private $character_description;
 
     /**
+     * @ORM\OneToMany(targetEntity="CharacterBundle\Entity\Skill\SkillValue",
+     *                mappedBy="playerCharacter",
+     *                cascade={"persist", "remove"})
+     */
+    private $skillValues;
+
+    /**
      * Get id
      *
      * @return int
